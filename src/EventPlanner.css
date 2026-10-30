@@ -118,21 +118,38 @@ footer {
   justify-content: center;
 }
 
-.events_categories ul {
+/* ===== Improved category cards (Task 7.1) ===== */
+.events_categories .event-category {
   background-color: rgba(0,0,0,0.2);
   width: 270px;
-  /* padding: 0 10px; */
 }
 
-.events_categories ul h2 {
+.events_categories .event-category h2 {
   background-color: #e46a9d;
-  text-align: center;
   padding: 5px 10px;
   color: white;
 }
 
-.events_categories ul li {
-  list-style-type: none;
+.events_categories .event-category ul {
+  padding: 0 12px 12px;
+  list-style: none;
+}
+
+.events_categories .event-category li {
   font-size: 1.1rem;
   line-height: 24px;
+}
+
+/* ===== Responsive layout (Task 7.2) ===== */
+.event-planner-container { box-sizing: border-box; width: 100%; }
+.events_categories { flex-wrap: wrap; }
+.events_categories .event-category { box-sizing: border-box; max-width: 100%; }
+
+@media (max-width: 768px) {
+  .events_categories {
+    flex-direction: column;
+    align-items: center;
+  }
+  .events_categories .event-category { width: min(100%, 350px); }
+  header h1 { font-size: 1.8rem; }
 }

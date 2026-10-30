@@ -1,7 +1,21 @@
 import React from 'react';
 import './EventPlanner.css'; // Import CSS file for styling
+import Footer from './Components/Footer';
 
 const EventPlanner = () => {
+  const socialEvents = [
+    'Birthday parties',
+    'Anniversary celebrations',
+    'Wedding receptions',
+    'Baby showers',
+    'Graduation parties',
+    'Family reunions'
+  ];
+
+  const handleGetStarted = () => {
+    alert('Welcome to Event Planner!');
+  };
+
   return (
     <div className="event-planner-container">
       <header>
@@ -12,42 +26,45 @@ const EventPlanner = () => {
         <p>
           Plan and organize events effortlessly
         </p>
-        <button className='get-started-button'>Get Started</button>
+        <button className='get-started-button' onClick={handleGetStarted}>
+          Get Started
+        </button>
       </section>
 
       <section className="events_categories">
         {/* Social event types */}
-        <ul>
+        <div className="event-category">
           <h2>Social Events:</h2>
-          <li>Birthday parties</li>
-          <li>Anniversary celebrations</li>
-          <li>Wedding receptions</li>
-          <li>Baby showers</li>
-          <li>Graduation parties</li>
-          <li>Family reunions</li>
-        </ul>
+          <ul>
+            {socialEvents.map((event) => <li key={event}>{event}</li>)}
+          </ul>
+        </div>
 
         {/* Entertainment-based event types */}
-        <ul>
+        <div className="event-category">
           <h2>Entertainment Events:</h2>
-          <li>Concerts</li>
-          <li>Music festivals</li>
-          <li>Film screenings</li>
-          <li>Comedy shows</li>
-          <li>Art exhibitions</li>
-          <li>Cultural events</li>
-        </ul>
+          <ul>
+            <li>Concerts</li>
+            <li>Music festivals</li>
+            <li>Film screenings</li>
+            <li>Comedy shows</li>
+            <li>Art exhibitions</li>
+            <li>Cultural events</li>
+          </ul>
+        </div>
 
         {/* Community-focused event types */}
-        <ul>
+        <div className="event-category">
           <h2>Community Events:</h2>
-          <li>Fundraising events</li>
-          <li>Charity galas</li>
-          <li>Volunteer drives</li>
-          <li>Neighborhood block parties</li>
-          <li>Community festivals</li>
-          <li>Cultural celebrations</li>
-        </ul>
+          <ul>
+            <li>Fundraising events</li>
+            <li>Charity galas</li>
+            <li>Volunteer drives</li>
+            <li>Neighborhood block parties</li>
+            <li>Community festivals</li>
+            <li>Cultural celebrations</li>
+          </ul>
+        </div>
       </section>
 
       <section className='features'>
@@ -91,6 +108,7 @@ const EventPlanner = () => {
           <button className="submit-button">Send</button>
         </form>
       </section>
+      <Footer />
     </div>
   );
 };
